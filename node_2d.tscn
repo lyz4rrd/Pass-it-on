@@ -48,6 +48,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_epypp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjhhy"]
+size = Vector2(94, 9)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
 atlas = ExtResource("1_wtcfe")
 region = Rect2(0, 0, 16, 16)
@@ -131,11 +134,17 @@ size = Vector2(8, 6)
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAADAAAAAAAEAAMAAAADAP//AAAEAAIAAAADAP7/AAAEAAEAAAACAP//AAAEAAEAAAACAAAAAAAEAAMAAAAAAP3/AAACAAMAAAABAP3/AAADAAMAAAD///3/AAABAAMAAAD+////AAAEAAEAAAD//wAAAAABAAMAAAD9//7/AAAEAAEAAAD+/wAAAAAEAAMAAAD9////AAAEAAIAAAD9/wAAAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_3gysh")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2081166975]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1577517457]
+position = Vector2(16, 5.5)
+shape = SubResource("RectangleShape2D_jjhhy")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502]
 script = ExtResource("2_epypp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=808643809]
-position = Vector2(0, -5)
+position = Vector2(1, -21)
 sprite_frames = SubResource("SpriteFrames_3gysh")
 animation = &"idle"
 frame = 1
@@ -143,5 +152,5 @@ frame_progress = 0.91530323
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=665529843]
-position = Vector2(1, -1)
+position = Vector2(2, -17)
 shape = SubResource("RectangleShape2D_3gysh")
