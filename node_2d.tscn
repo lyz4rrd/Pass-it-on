@@ -51,6 +51,9 @@ sources/0 = SubResource("TileSetAtlasSource_epypp")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjhhy"]
 size = Vector2(94, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc1ph"]
+size = Vector2(29, 9)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
 atlas = ExtResource("1_wtcfe")
 region = Rect2(0, 0, 16, 16)
@@ -140,6 +143,26 @@ tile_set = SubResource("TileSet_3gysh")
 position = Vector2(16, 5.5)
 shape = SubResource("RectangleShape2D_jjhhy")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=960652056]
+position = Vector2(17, -89)
+shape = SubResource("RectangleShape2D_jjhhy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=919965466]
+position = Vector2(-47.5, -25.5)
+shape = SubResource("RectangleShape2D_uc1ph")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1298454851]
+position = Vector2(-80, -58)
+shape = SubResource("RectangleShape2D_uc1ph")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1639810548]
+position = Vector2(81, -27)
+shape = SubResource("RectangleShape2D_uc1ph")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1303429687]
+position = Vector2(112, -58)
+shape = SubResource("RectangleShape2D_uc1ph")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502]
 script = ExtResource("2_epypp")
 
@@ -155,3 +178,5 @@ position = Vector2(2, -17)
 shape = SubResource("RectangleShape2D_3gysh")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=694398917]
+offset = Vector2(0, -80)
+zoom = Vector2(3, 3)
