@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgcsi7fwydje7" path="res://assets/Laboratory.png" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://cu4pwskxhl427" path="res://player.gd" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://cntcfxpysacsw" path="res://assets/level-doors/lvl-1-door.png" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://cueo27r2drk8g" path="res://robot.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://1dpsoohc722d" path="res://assets/robot walk.png" id="5_q6r6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
@@ -168,13 +169,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hqns4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x0ka3")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0h7mo")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nr8wp")
 }, {
@@ -182,12 +193,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_d2bti")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"run",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcyda"]
 size = Vector2(7, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr4tp"]
+size = Vector2(7, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7ta6"]
+size = Vector2(6, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgl6b"]
+size = Vector2(383, 7)
 
 [node name="Node2D" type="Node2D" unique_id=1401634823]
 
@@ -233,7 +253,7 @@ shape = SubResource("RectangleShape2D_1iiia")
 
 [node name="Sprite2D" type="Sprite2D" parent="Lvl1Door" unique_id=251756474]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=474383502]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=474383502 groups=["player"]]
 script = ExtResource("2_epypp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=808643809]
@@ -251,12 +271,28 @@ offset = Vector2(0, -80)
 zoom = Vector2(3, 3)
 
 [node name="Robot" type="CharacterBody2D" parent="." unique_id=1670047660]
+script = ExtResource("5_kdubu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Robot" unique_id=1490095343]
 position = Vector2(53, -6)
 scale = Vector2(0.46875, 0.484375)
 sprite_frames = SubResource("SpriteFrames_jjhhy")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Robot" unique_id=118812668]
 position = Vector2(52.5, -5.5)
 shape = SubResource("RectangleShape2D_xcyda")
+
+[node name="WorldBounds" type="StaticBody2D" parent="." unique_id=1848361717]
+
+[node name="LeftWall" type="CollisionShape2D" parent="WorldBounds" unique_id=221550643]
+position = Vector2(-196.5, -79)
+shape = SubResource("RectangleShape2D_mr4tp")
+
+[node name="RightWall" type="CollisionShape2D" parent="WorldBounds" unique_id=436436302]
+position = Vector2(195, -81)
+shape = SubResource("RectangleShape2D_r7ta6")
+
+[node name="Floor" type="CollisionShape2D" parent="WorldBounds" unique_id=2128955566]
+position = Vector2(0.5, 31.5)
+shape = SubResource("RectangleShape2D_xgl6b")
