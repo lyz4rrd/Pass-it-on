@@ -55,6 +55,9 @@ size = Vector2(94, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc1ph"]
 size = Vector2(29, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iiia"]
+size = Vector2(20, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
 atlas = ExtResource("1_wtcfe")
 region = Rect2(0, 0, 16, 16)
@@ -167,6 +170,14 @@ shape = SubResource("RectangleShape2D_uc1ph")
 [node name="Lvl1Door" type="Sprite2D" parent="." unique_id=378110627]
 position = Vector2(49, -112)
 texture = ExtResource("4_0hol4")
+
+[node name="Area2D" type="Area2D" parent="Lvl1Door" unique_id=1784149932]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lvl1Door/Area2D" unique_id=424601586]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1iiia")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lvl1Door" unique_id=251756474]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502]
 script = ExtResource("2_epypp")
