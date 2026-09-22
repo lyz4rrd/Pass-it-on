@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cntcfxpysacsw" path="res://assets/level-doors/lvl-1-door.png" id="4_0hol4"]
 [ext_resource type="Script" uid="uid://cueo27r2drk8g" path="res://robot.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://1dpsoohc722d" path="res://assets/robot walk.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://b3eyyrjah1qo2" path="res://assets/dynamite.png" id="7_d21ai"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
 texture = ExtResource("2_0e48y")
@@ -209,6 +210,24 @@ size = Vector2(6, 216)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgl6b"]
 size = Vector2(383, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uooy5"]
+size = Vector2(6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
+atlas = ExtResource("7_d21ai")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc1ph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta5nu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D" unique_id=1401634823]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=538146852]
@@ -296,3 +315,14 @@ shape = SubResource("RectangleShape2D_r7ta6")
 [node name="Floor" type="CollisionShape2D" parent="WorldBounds" unique_id=2128955566]
 position = Vector2(0.5, 31.5)
 shape = SubResource("RectangleShape2D_xgl6b")
+
+[node name="Bomb" type="Area2D" parent="." unique_id=1841599484]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb" unique_id=1834380809]
+position = Vector2(29, -35)
+shape = SubResource("RectangleShape2D_uooy5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bomb" unique_id=1042594566]
+position = Vector2(28.999998, -36.000004)
+scale = Vector2(0.40624997, 0.4375)
+sprite_frames = SubResource("SpriteFrames_uc1ph")
