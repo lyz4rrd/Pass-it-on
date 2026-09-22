@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cha81f83lbbus" path="res://assets/character.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://bgcsi7fwydje7" path="res://assets/Laboratory.png" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://cu4pwskxhl427" path="res://player.gd" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://cntcfxpysacsw" path="res://assets/level-doors/lvl-1-door.png" id="4_0hol4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
 texture = ExtResource("2_0e48y")
@@ -163,15 +164,18 @@ shape = SubResource("RectangleShape2D_uc1ph")
 position = Vector2(112, -58)
 shape = SubResource("RectangleShape2D_uc1ph")
 
+[node name="Lvl1Door" type="Sprite2D" parent="." unique_id=378110627]
+position = Vector2(49, -112)
+texture = ExtResource("4_0hol4")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502]
 script = ExtResource("2_epypp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=808643809]
 position = Vector2(1, -21)
 sprite_frames = SubResource("SpriteFrames_3gysh")
-animation = &"idle"
-frame_progress = 0.6318134
-speed_scale = 0.5
+animation = &"walk"
+speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=665529843]
 position = Vector2(2, -17)
